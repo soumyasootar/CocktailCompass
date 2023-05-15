@@ -1,13 +1,11 @@
 // import { useState } from "react";
-import { Box, HStack } from "@chakra-ui/react";
+// import { Box, HStack } from "@chakra-ui/react";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <HStack>
-        <Box>Hi</Box>
-      </HStack>
+      <h1>Cocktail Compass</h1>
     </>
   );
 }
