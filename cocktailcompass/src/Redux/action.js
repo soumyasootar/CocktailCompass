@@ -1,24 +1,27 @@
-import * as types from "./actionTypes"
+import {FETCH_COCKTAIL_SUCCESS,FETCH_COCKTAIL_START,FETCH_COCKTAIL_FAILURE} from "./actionType.js"
 import axios from 'axios';
 
 const fetchCockTailStart = () => ({
-    type: types.FETCH_COCKTAIL_START
+    type: FETCH_COCKTAIL_START
 })
 const fetchCockTailSuccess = (cocktails) => ({
-    type: types.FETCH_COCKTAIL_SUCCESS,
+    type: FETCH_COCKTAIL_SUCCESS,
     payload: cocktails,
 })
 const fetchCockTailFail = (error) => ({
-    type: types.FETCH_COCKTAIL_FAIL,
+    type: FETCH_COCKTAIL_FAILURE,
     payload: error,
 })
 
-export function fetchCocktail() {
+export default function fetchCocktail() {
     return function (dispatch){
         dispatch(fetchCockTailStart());
-        axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then((response)=>{
-            const cocktails = response.data.drinks
-            dispatch(fetchCockTailSuccess(cocktails))
-        }).catch(error=>dispatch(fetchCockTailFail(error)))
+        setTimeout(()=>{
+
+            axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then((response)=>{
+                const cocktails = response.data.drinks
+                dispatch(fetchCockTailSuccess(cocktails))
+            }).catch(error=>dispatch(fetchCockTailFail(error)))
+        },2000)
     }
 }

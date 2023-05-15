@@ -1,4 +1,5 @@
-import * as types from "./actionType";
+import {FETCH_COCKTAIL_SUCCESS,FETCH_COCKTAIL_START,FETCH_COCKTAIL_FAILURE} from "./actionType.js"
+
 
 const initalstate = {
   cocktails: [],
@@ -8,18 +9,18 @@ const initalstate = {
 
 const cockTailReducer = (state = initalstate, action) => {
   switch (action.type) {
-    case types.FETCH_COCKTAIL_START:
+    case FETCH_COCKTAIL_START:
       return {
         ...state,
         loading: true,
       };
-    case types.FETCH_COCKTAIL_SUCCESS:
+    case FETCH_COCKTAIL_SUCCESS:
       return {
         ...state,
-        loading: true,
+        loading: false,
         cocktails: action.payload,
       };
-    case types.FETCH_COCKTAIL_FAILURE:
+    case FETCH_COCKTAIL_FAILURE:
       return {
         ...state,
         loading: false,
