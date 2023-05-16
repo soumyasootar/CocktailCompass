@@ -34,6 +34,7 @@ const CockTailList = () => {
       let newCocktails = cocktails.map((item) => {
         const {
           idDrink,
+          strDrink,
           strIngredient1,
           strIngredient2,
           strDrinkThumb,
@@ -42,7 +43,7 @@ const CockTailList = () => {
         } = item;
         return {
           id: idDrink,
-          name: strIngredient1,
+          name: strDrink,
           name1: strIngredient2,
           image: strDrinkThumb,
           info: strAlcoholic,
@@ -71,8 +72,8 @@ const CockTailList = () => {
     <h2>No Cocktails Found</h2>;
   }
   return (
-    <Box zIndex={"-10"} margin={"auto"}>
-      <SimpleGrid columns={[1, 2, 4]} spacing="40px">
+    <Box zIndex={"-10"} margin={"auto"} mb={"10"} width={"80%"}>
+      <SimpleGrid columns={[1, 2,3, 4]} spacing="40px">
         {modifiedCocktails.map((ele) => {
           return (
             <Card maxW="sm" key={ele.id} boxShadow={"2xl"}>
@@ -80,19 +81,21 @@ const CockTailList = () => {
                 <Image src={ele.image} alt="cocktail.png" borderRadius="lg" />
                 <Stack mt="6" spacing="3">
                   <Heading size="md">
-                    {ele.name},{ele.name1}
+                    {ele.glass}
                   </Heading>
-                  <Text fontWeight={"bold"} color={"purple"} fontSize={"2xl"}>{ele.glass}</Text>
+                  <Text fontWeight={"bold"} color={"purple"} fontSize={"2xl"}>
+                    {ele.name},{ele.name1}
+                  </Text>
                   <Text size="md">{ele.info}</Text>
                 </Stack>
               </CardBody>
               <Divider />
               <CardFooter>
-              <Link to={`/cocktails/${ele.id}`}>
-                <Button variant="solid" colorScheme="blue">
-                  Details
-                </Button>
-              </Link>
+                <Link to={`/cocktail/${ele.id}`}>
+                  <Button variant="solid" colorScheme="blue">
+                    Details
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           );

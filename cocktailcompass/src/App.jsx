@@ -5,14 +5,16 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import CockTailList from "./components/CockTailList";
 import Header from "./components/Header";
+import SingleCocktail from "./pages/SingleCocktail";
 
 function App() {
   return (
-    <Box w={"100vw"}>
+    <Box w={"100vw"} >
     <Header/>
+
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" element={<CockTailList />} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/cocktail/:id" element={<SingleCocktail />} />
       </Routes>
     </Box>
   );

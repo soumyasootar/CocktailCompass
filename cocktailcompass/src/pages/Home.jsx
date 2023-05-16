@@ -1,12 +1,14 @@
-import React from 'react'
-import CockTailList from '../components/CockTailList'
+import React from "react";
+import CockTailList from "../components/CockTailList";
+import SearchInput from "../components/SearchInput";
 
 const Home = () => {
   return (
     <>
-<h1>Home</h1>
+    <SearchInput/>
+      <CockTailList />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
