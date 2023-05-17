@@ -95,7 +95,7 @@ const SingleCocktail = () => {
           </Center>
         ) : (
           <>
-            <Center>
+            <Center width={"100%"}>
               <VStack>
                 <Link to={"/"}>
                   <Button colorScheme="purple" size={"lg"}>
@@ -106,8 +106,12 @@ const SingleCocktail = () => {
                   direction={{ base: "column", sm: "row" }}
                   overflow="hidden"
                   variant="outline"
-                  boxShadow={"2xl"}
-                  border={"8px solid #FAB133"}
+                  // boxShadow={"2xl"}
+                  // border={"8px solid #FAB133"}
+                  // width={"100%"}
+                  bgImage={"url('https://t.pimg.jp/060/882/418/1/60882418.jpg')"}
+                  bg={"rgba( 255, 255, 255, 0.75 )"} boxShadow={"0 8px 32px 0 rgba( 31, 38, 135, 0.37 )"} backdropBlur={"blur( 20px )"} 
+                  borderRadius={"10px"} border={"1px solid rgba( 255, 255, 255, 0.18 )"}
                   
                 >
                   <Image
@@ -120,7 +124,7 @@ const SingleCocktail = () => {
                   />
 
                   <Stack>
-                    <CardBody>
+                    <CardBody >
                       <Heading size="md"><Badge colorScheme="orange">Name: </Badge> &nbsp;&nbsp;{" "}{name}</Heading>
 
                       <Text py="2">

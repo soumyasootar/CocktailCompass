@@ -72,11 +72,11 @@ const CockTailList = () => {
     <h2>No Cocktails Found</h2>;
   }
   return (
-    <Box zIndex={"-10"} margin={"auto"} mb={"10"} width={"80%"}>
+    <Box zIndex={"-10"} margin={"auto"} mb={"10"} width={"90%"}>
       <SimpleGrid columns={[1, 2,3, 4]} spacing="40px">
         {modifiedCocktails.map((ele) => {
           return (
-            <Card maxW="sm" key={ele.id} boxShadow={"2xl"}>
+            <Card maxW="sm" key={ele.id} boxShadow={"2xl"} bgImage={"url('https://thumbs.dreamstime.com/b/vector-fizzy-drink-isolated-white-background-undersea-bubbles-texture-126306777.jpg')"}>
               <CardBody>
                 <Image src={ele.image} alt="cocktail.png" borderRadius="lg" />
                 <Stack mt="6" spacing="3">
@@ -92,7 +92,7 @@ const CockTailList = () => {
               <Divider />
               <CardFooter>
                 <Link to={`/cocktail/${ele.id}`}>
-                  <Button variant="solid" colorScheme="blue">
+                  <Button variant="solid" colorScheme="purple">
                     Details
                   </Button>
                 </Link>
