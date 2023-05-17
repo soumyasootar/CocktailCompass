@@ -20,13 +20,10 @@ import { Link } from "react-router-dom";
 const CockTailList = () => {
   const dispatch = useDispatch();
   const { cocktails, loading } = useSelector((state) => ({ ...state.data }));
-  console.log("loading: ", loading);
   const [modifiedCocktails, setModifiedCocktails] = useState([]);
 
   useEffect(() => {
-    console.log("yes");
     dispatch(fetchCocktail());
-    console.log("yes");
   }, [dispatch]);
 
   useEffect(() => {

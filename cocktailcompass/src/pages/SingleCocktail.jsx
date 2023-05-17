@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchSingleCocktail } from "../Redux/action";
 import {
   Badge,
-  Box,
   Button,
-  ButtonGroup,
   Center,
-  Divider,
   HStack,
   Heading,
   Image,
-  SimpleGrid,
   Spinner,
   Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+import { Card, CardBody } from "@chakra-ui/react";
 
 const SingleCocktail = () => {
   const { cocktail, loading } = useSelector((state) => ({ ...state.data }));
   const [modifiedCocktails, setModifiedCocktails] = useState(null);
-  console.log("modifiedCocktails: ", modifiedCocktails);
+  // console.log("modifiedCocktails: ", modifiedCocktails);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -54,7 +50,7 @@ const SingleCocktail = () => {
         strIngredient4,
         strIngredient5,
       ];
-      const ingredients=ingredients1.filter(e=>e!=null)
+      const ingredients = ingredients1.filter((e) => e != null);
 
       const newCocktail = {
         name,
@@ -109,10 +105,14 @@ const SingleCocktail = () => {
                   // boxShadow={"2xl"}
                   // border={"8px solid #FAB133"}
                   // width={"100%"}
-                  bgImage={"url('https://t.pimg.jp/060/882/418/1/60882418.jpg')"}
-                  bg={"rgba( 255, 255, 255, 0.75 )"} boxShadow={"0 8px 32px 0 rgba( 31, 38, 135, 0.37 )"} backdropBlur={"blur( 20px )"} 
-                  borderRadius={"10px"} border={"1px solid rgba( 255, 255, 255, 0.18 )"}
-                  
+                  bgImage={
+                    "url('https://t.pimg.jp/060/882/418/1/60882418.jpg')"
+                  }
+                  bg={"rgba( 255, 255, 255, 0.75 )"}
+                  boxShadow={"0 8px 32px 0 rgba( 31, 38, 135, 0.37 )"}
+                  backdropBlur={"blur( 20px )"}
+                  borderRadius={"10px"}
+                  border={"1px solid rgba( 255, 255, 255, 0.18 )"}
                 >
                   <Image
                     objectFit="cover"
@@ -124,8 +124,11 @@ const SingleCocktail = () => {
                   />
 
                   <Stack>
-                    <CardBody >
-                      <Heading size="md"><Badge colorScheme="orange">Name: </Badge> &nbsp;&nbsp;{" "}{name}</Heading>
+                    <CardBody>
+                      <Heading size="md">
+                        <Badge colorScheme="orange">Name: </Badge> &nbsp;&nbsp;{" "}
+                        {name}
+                      </Heading>
 
                       <Text py="2">
                         <Badge colorScheme="green">Info: </Badge> &nbsp;&nbsp;{" "}
@@ -146,18 +149,17 @@ const SingleCocktail = () => {
                         {instructions}
                       </Text>
                       <HStack>
-
-                      <Badge colorScheme="red">Ingredients: </Badge>
-                      &nbsp;&nbsp;
-                      {ingredients.map((e, i) => (
-                        <Text key={i}>
-                          {i == ingredients.length - 1
-                            ? `and ${e}.`
-                            : e
-                            ? `${e},`
-                            : ""}
-                        </Text>
-                      ))}
+                        <Badge colorScheme="red">Ingredients: </Badge>
+                        &nbsp;&nbsp;
+                        {ingredients.map((e, i) => (
+                          <Text key={i}>
+                            {i == ingredients.length - 1
+                              ? `and ${e}.`
+                              : e
+                              ? `${e},`
+                              : ""}
+                          </Text>
+                        ))}
                       </HStack>
                     </CardBody>
                   </Stack>
